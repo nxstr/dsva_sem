@@ -120,8 +120,8 @@ public class Node {
     }
     private void configureJMS(){
         try{
-            connectionFactory = new ActiveMQConnectionFactory("failover:(tcp://"+firstBrokerAddr+":61616)");
-//            connectionFactory = new ActiveMQConnectionFactory("failover:(tcp://"+firstBrokerAddr+":61616,tcp://"+secondBrokerAddr+":61616)");
+//            connectionFactory = new ActiveMQConnectionFactory("failover:(tcp://"+firstBrokerAddr+":61616)");
+            connectionFactory = new ActiveMQConnectionFactory("failover:(tcp://"+firstBrokerAddr+":61616,tcp://"+secondBrokerAddr+":61616)");
             connection = connectionFactory.createConnection();
             connection.start();
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
@@ -725,6 +725,7 @@ public class Node {
 
 
     public void startDetection(){
+        Collections.sort(listOfDependencies);
         if(type==NodeType.PASSIVE){
             if(listOfDependencies.isEmpty()){
                 logger.info(nodeLogName+ "Node " + nodeId + " is not deadlocked");
@@ -803,6 +804,24 @@ public class Node {
         }
     }
 
+//    public void sendRejectAnswer(int originatorId, int testNum, int senderId, int receiverId){
+//        try {
+//            if(delayMillis!=0) {
+//                try {
+//                    Thread.sleep(delayMillis);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            TextMessage message = session.createTextMessage("REJECT|" + originatorId + "|" + testNum + "|" + senderId + "|" + receiverId);
+//            message.setIntProperty("nodeId", receiverId);
+//            logger.info(nodeLogName+ "Node " + nodeId + " is sending reject message to " + receiverId);
+//            detectDirectProducer.send(message);
+//        } catch (JMSException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     public void processQuestion(int originatorId, int testNum, int senderId){
         for(Pair p: last){
             if(p.getNodeId()==originatorId){
@@ -820,7 +839,9 @@ public class Node {
                             break;
                         }
                     }
+
                     for(Integer id: listOfDependencies){
+                        System.out.println("dependent on: " + id);
                         sendQuestion(originatorId, testNum, nodeId, id); //originatorId, testNum from last, sender, receiverId,
                     }
                     for(Pair p1: number){
@@ -833,6 +854,8 @@ public class Node {
                     int waitV = wait.stream().filter(p1->p1.getNodeId()==originatorId).findAny().orElse(null).getValue();
                     if(waitV==1 && p.getValue()==testNum){
                         sendAnswer(originatorId, testNum, nodeId, senderId); //originatorId, testNum from last, sender, receiverId,
+                    }else {
+                        sendAnswer(originatorId, testNum, nodeId, senderId); //needs because otherwise sender would wait endless for response and won't detect deadlock in multiple-request-deadlock
                     }
                 }
                 break;
@@ -840,6 +863,9 @@ public class Node {
         }
     }
 
+//    public void processRejectAnswer(int originatorId, int testNum, int receiverId){
+//        processAnswer(originatorId, testNum, receiverId);
+//    }
     public void processAnswer(int originatorId, int testNum, int receiverId){
         int waitV = wait.stream().filter(p1->p1.getNodeId()==originatorId).findAny().orElse(null).getValue();
         int lastV = last.stream().filter(p1->p1.getNodeId()==originatorId).findAny().orElse(null).getValue();
@@ -861,12 +887,18 @@ public class Node {
                                         break;
                                     }
                                 }
+                            }else{
+                                System.out.println("My parent is null and i dont know where is the problem " + originatorId + " " + receiverId);
                             }
                         }
+                    }else{
+                        System.out.println("Not null");
                     }
                     break;
                 }
             }
+        }else{
+            System.out.println("here 2");
         }
     }
 //    public void sendDeadlockFreeMsg(int originatorId, int testNum, int receiverId){

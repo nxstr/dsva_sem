@@ -42,7 +42,9 @@ public class DetectDirectListener implements MessageListener {
 //            }
 //        }
         if(messageText.startsWith("QUESTION")){
+
             if(node.getType() == NodeType.PASSIVE){
+                System.out.println("Question from " + senderId);
 //                if(node.getLast().stream().noneMatch(p->p.getNodeId()==originatorId)){
 //                    node.addNewNodeToLists(originatorId);
 //                }
@@ -54,10 +56,18 @@ public class DetectDirectListener implements MessageListener {
 //            }
         }else if(messageText.startsWith("ANSWER")){
 //            dfmCount=0;
+
             if(node.getType() == NodeType.PASSIVE){
+                System.out.println("Answer from " + senderId);
                 node.processAnswer(originatorId,testNum, receiverId);
             }
         }
+//        else if(messageText.startsWith("REJECT")){
+//            if(node.getType() == NodeType.PASSIVE){
+//                System.out.println("Answer from " + senderId);
+//                node.processAnswer(originatorId,testNum, receiverId);
+//            }
+//        }
 //        else if(messageText.startsWith("DFM")){
 //            if (node.getType() == NodeType.PASSIVE) {
 //                if(node.getListOfDependencies().contains(senderId)){

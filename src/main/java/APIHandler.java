@@ -41,35 +41,35 @@ public class APIHandler {
                     System.out.println("Getting current node count.");
                     ctx.result(myNode.getNodeIds().size() + "\n");
                 })
-                .get("/provoke_full_deadlock", ctx -> {
+                .post("/provoke_full_deadlock", ctx -> {
                     ctx.result("Provoking full deadlock." + "\n");
                     myNode.executeProvokeDeadlock();
                 })
-                .get("/provoke_single/{receiverId}", ctx -> {
+                .post("/provoke_single/{receiverId}", ctx -> {
                     ctx.result("Provoking single dependency." + "\n");
                     myNode.executeProvokeSingleDependency(Integer.parseInt(ctx.pathParam("receiverId")));
                 })
-                .get("/answer_single/{receiverId}", ctx -> {
+                .post("/answer_single/{receiverId}", ctx -> {
                     ctx.result("Sending single message." + "\n");
                     myNode.executeAnswerSingle(Integer.parseInt(ctx.pathParam("receiverId")));
                 })
-                .get("/detect_deadlock", ctx -> {
+                .post("/detect_deadlock", ctx -> {
                     ctx.result("Detecting deadlock." + "\n");
                     myNode.executeDetectDeadlock();
                 })
-                .get("/clear", ctx -> {
+                .post("/clear", ctx -> {
                     ctx.result("Clearing data after deadlock." + "\n");
                     myNode.executeClearDeadlock();
                 })
-                .get("/set_passive", ctx -> {
+                .post("/set_passive", ctx -> {
                     ctx.result("Setting passive node." + "\n");
                     myNode.setPassive();
                 })
-                .get("/set_active", ctx -> {
+                .post("/set_active", ctx -> {
                     ctx.result("Trying to set node active." + "\n");
                     myNode.setActive();
                 })
-                .get("/exit", ctx -> {
+                .post("/exit", ctx -> {
                     ctx.result("Shutting down." + "\n");
                     myNode.shutdown();
                 })
