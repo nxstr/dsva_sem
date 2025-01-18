@@ -1,0 +1,340 @@
+2025-18 21:34:34 INFO [Node] [sendJoinMessage] - [Node 1] Node 1 is sending join message
+2025-18 21:34:35 INFO [Node] [configureJMS] - [Node 1] No one responded. I am single node
+2025-18 21:34:35 INFO [Node] [configureJMS] - [Node 1] Current node count: 1
+2025-18 21:34:36 INFO [Node] [sendJoinMessage] - [Node 2] Node 2 is sending join message
+2025-18 21:34:36 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 2
+2025-18 21:34:36 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got join ack from 1 in node 2, current node count: 1
+2025-18 21:34:36 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got join in node 1, current node count: 2
+2025-18 21:34:37 INFO [Node] [configureJMS] - [Node 2] Current node count: 2
+2025-18 21:34:40 INFO [Node] [sendJoinMessage] - [Node 3] Node 3 is sending join message
+2025-18 21:34:40 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 3
+2025-18 21:34:40 INFO [Node] [sendDirectAck] - [Node 2] Node 2 is sending ack message to 3
+2025-18 21:34:40 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got join in node 2, current node count: 3
+2025-18 21:34:40 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got join in node 1, current node count: 3
+2025-18 21:34:40 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got join ack from 2 in node 3, current node count: 1
+2025-18 21:34:40 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got join ack from 1 in node 3, current node count: 2
+2025-18 21:34:41 INFO [Node] [configureJMS] - [Node 3] Current node count: 3
+2025-18 21:34:42 INFO [Node] [sendJoinMessage] - [Node 4] Node 4 is sending join message
+2025-18 21:34:42 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 4
+2025-18 21:34:42 INFO [Node] [sendDirectAck] - [Node 3] Node 3 is sending ack message to 4
+2025-18 21:34:42 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got join in node 1, current node count: 4
+2025-18 21:34:42 INFO [Node] [sendDirectAck] - [Node 2] Node 2 is sending ack message to 4
+2025-18 21:34:42 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got join in node 2, current node count: 4
+2025-18 21:34:42 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got join in node 3, current node count: 4
+2025-18 21:34:42 INFO [BroadcastMessageListener] [processMessage] - [Node 4] Got join ack from 1 in node 4, current node count: 1
+2025-18 21:34:42 INFO [BroadcastMessageListener] [processMessage] - [Node 4] Got join ack from 3 in node 4, current node count: 2
+2025-18 21:34:42 INFO [BroadcastMessageListener] [processMessage] - [Node 4] Got join ack from 2 in node 4, current node count: 3
+2025-18 21:34:43 INFO [Node] [configureJMS] - [Node 4] Current node count: 4
+2025-18 21:34:49 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 4] Node 4 is sending response YES of cs to 1
+2025-18 21:34:49 INFO [Node] [enterCriticalSection] - [Node 1] Node 1 is entering critical section
+2025-18 21:34:49 INFO [Node] [sendProvokeDirectMessage] - [Node 1] Node 1 is sending provoke message to 2
+2025-18 21:34:49 INFO [Node] [leaveCriticalSection] - [Node 1] Node 1 is leaving cs
+2025-18 21:34:49 INFO [Node] [sendReleaseFromCS] - [Node 1] Node 1 is sending release from cs
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got provoke on node 2 from node 1
+2025-18 21:34:49 INFO [Node] [sendDirectAck] - [Node 2] Node 2 is sending ack message to 1
+2025-18 21:34:49 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got Provoke ack from 2, in node 1
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Release message from: 2 timestamp: 3
+2025-18 21:34:49 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 2
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 2
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 4] Node 4 is sending response YES of cs to 2
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 4] Node 4 is sending response YES of cs to 2
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 2
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 2
+2025-18 21:34:49 INFO [Node] [enterCriticalSection] - [Node 2] Node 2 is entering critical section
+2025-18 21:34:49 INFO [Node] [sendProvokeDirectMessage] - [Node 2] Node 2 is sending provoke message to 4
+2025-18 21:34:49 INFO [Node] [sendProvokeDirectMessage] - [Node 2] Node 2 is sending provoke message to 3
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 4] Got provoke on node 4 from node 2
+2025-18 21:34:49 INFO [Node] [sendDirectAck] - [Node 4] Node 4 is sending ack message to 2
+2025-18 21:34:49 INFO [Node] [leaveCriticalSection] - [Node 2] Node 2 is leaving cs
+2025-18 21:34:49 INFO [Node] [sendReleaseFromCS] - [Node 2] Node 2 is sending release from cs
+2025-18 21:34:49 INFO [Node] [sendRequestToCS] - [Node 4] Node 4 is sending request to cs
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got Provoke ack from 4, in node 2
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 4
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got provoke on node 3 from node 2
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 4] Release message from: 4 timestamp: 6
+2025-18 21:34:49 INFO [Node] [sendRequestToCS] - [Node 4] Node 4 is sending request to cs
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response NO of cs to 4
+2025-18 21:34:49 INFO [Node] [sendDirectAck] - [Node 3] Node 3 is sending ack message to 2
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 4
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got Provoke ack from 3, in node 2
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Release message from: 4 timestamp: 6
+2025-18 21:34:49 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 3
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response NO of cs to 4
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 4] Node 4 is sending response YES of cs to 3
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Release message from: 3 timestamp: 6
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 4
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Release message from: 4 timestamp: 6
+2025-18 21:34:49 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 3
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 4] Node 4 is sending response YES of cs to 3
+2025-18 21:34:49 INFO [Node] [enterCriticalSection] - [Node 4] Node 4 is entering critical section
+2025-18 21:34:49 INFO [Node] [sendProvokeDirectMessage] - [Node 4] Node 4 is sending provoke message to 1
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response NO of cs to 4
+2025-18 21:34:49 INFO [Node] [sendProvokeDirectMessage] - [Node 4] Node 4 is sending provoke message to 3
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 3
+2025-18 21:34:49 INFO [Node] [leaveCriticalSection] - [Node 4] Node 4 is leaving cs
+2025-18 21:34:49 INFO [Node] [sendReleaseFromCS] - [Node 4] Node 4 is sending release from cs
+2025-18 21:34:49 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 3
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got provoke on node 1 from node 4
+2025-18 21:34:49 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 4
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Release message from: 4 timestamp: 6
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 4] Got Provoke ack from 1, in node 4
+2025-18 21:34:49 INFO [Node] [enterCriticalSection] - [Node 3] Node 3 is entering critical section
+2025-18 21:34:49 INFO [Node] [sendProvokeDirectMessage] - [Node 3] Node 3 is sending provoke message to 1
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Release message from: 4 timestamp: 6
+2025-18 21:34:49 INFO [Node] [sendProvokeDirectMessage] - [Node 3] Node 3 is sending provoke message to 4
+2025-18 21:34:49 INFO [Node] [leaveCriticalSection] - [Node 3] Node 3 is leaving cs
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 4] Got provoke on node 4 from node 3
+2025-18 21:34:49 INFO [Node] [sendReleaseFromCS] - [Node 3] Node 3 is sending release from cs
+2025-18 21:34:49 INFO [Node] [sendDirectAck] - [Node 4] Node 4 is sending ack message to 3
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got provoke on node 1 from node 3
+2025-18 21:34:49 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 3
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got provoke on node 3 from node 4
+2025-18 21:34:49 INFO [Node] [sendDirectAck] - [Node 3] Node 3 is sending ack message to 4
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 4] Got Provoke ack from 3, in node 4
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got Provoke ack from 4, in node 3
+2025-18 21:34:49 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got Provoke ack from 1, in node 3
+2025-18 21:34:54 INFO [Node] [sendQuestion] - [Node 1] Node 1 is sending question message to 2
+2025-18 21:34:54 INFO [Node] [sendQuestion] - [Node 2] Node 2 is sending question message to 4
+2025-18 21:34:54 INFO [Node] [sendQuestion] - [Node 2] Node 2 is sending question message to 3
+2025-18 21:34:54 INFO [Node] [sendQuestion] - [Node 4] Node 4 is sending question message to 1
+2025-18 21:34:54 INFO [Node] [sendQuestion] - [Node 4] Node 4 is sending question message to 3
+2025-18 21:34:54 INFO [Node] [sendQuestion] - [Node 3] Node 3 is sending question message to 4
+2025-18 21:34:54 INFO [Node] [sendQuestion] - [Node 3] Node 3 is sending question message to 1
+2025-18 21:34:54 INFO [Node] [sendAnswer] - [Node 1] Node 1 is sending answer message to 4
+2025-18 21:34:54 INFO [Node] [sendAnswer] - [Node 4] Node 4 is sending answer message to 3
+2025-18 21:34:54 INFO [Node] [sendAnswer] - [Node 3] Node 3 is sending answer message to 4
+2025-18 21:34:54 INFO [Node] [sendAnswer] - [Node 1] Node 1 is sending answer message to 3
+2025-18 21:34:54 INFO [Node] [sendAnswer] - [Node 4] Node 4 is sending answer message to 2
+2025-18 21:34:54 INFO [Node] [sendAnswer] - [Node 3] Node 3 is sending answer message to 2
+2025-18 21:34:54 INFO [Node] [sendAnswer] - [Node 2] Node 2 is sending answer message to 1
+2025-18 21:34:54 INFO [Node] [processAnswer] - [Node 1] DEADLOCK DETECTED on node 1
+2025-18 21:34:54 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:34:54 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:34:54 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:34:54 INFO [Node] [sendCSResponse] - [Node 4] Node 4 is sending response YES of cs to 1
+2025-18 21:34:54 INFO [Node] [enterCriticalSection] - [Node 1] Node 1 is entering critical section
+2025-18 21:34:54 INFO [Node] [announceDeadlock] - [Node 1] Node 1 is sending deadlock announce from cs
+2025-18 21:34:54 INFO [BroadcastMessageListener] [processMessage] - [Node 3] DEADLOCK DETECTED on node 1
+2025-18 21:34:54 INFO [BroadcastMessageListener] [processMessage] - [Node 4] DEADLOCK DETECTED on node 1
+2025-18 21:34:54 INFO [BroadcastMessageListener] [processMessage] - [Node 2] DEADLOCK DETECTED on node 1
+2025-18 21:34:54 INFO [Node] [leaveCriticalSection] - [Node 1] Node 1 is leaving cs
+2025-18 21:34:54 INFO [Node] [sendReleaseFromCS] - [Node 1] Node 1 is sending release from cs
+2025-18 21:34:59 INFO [Node] [sendRequestToCS] - [Node 4] Node 4 is sending request to cs
+2025-18 21:34:59 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 4
+2025-18 21:34:59 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 4
+2025-18 21:34:59 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 4
+2025-18 21:34:59 INFO [Node] [enterCriticalSection] - [Node 4] Node 4 is entering critical section
+2025-18 21:34:59 INFO [Node] [announceClearDeadlock] - [Node 4] Node 4 is sending clear message from cs
+2025-18 21:34:59 INFO [Node] [leaveCriticalSection] - [Node 4] Node 4 is leaving cs
+2025-18 21:34:59 INFO [BroadcastMessageListener] [processMessage] - [Node 1] CLEAR DETECTED on node 4
+2025-18 21:34:59 INFO [Node] [sendReleaseFromCS] - [Node 4] Node 4 is sending release from cs
+2025-18 21:34:59 INFO [BroadcastMessageListener] [processMessage] - [Node 3] CLEAR DETECTED on node 4
+2025-18 21:34:59 INFO [BroadcastMessageListener] [processMessage] - [Node 2] CLEAR DETECTED on node 4
+2025-18 21:35:05 INFO [Node] [startDetection] - [Node 1] Node 1 is not deadlocked
+2025-18 21:41:29 INFO [Node] [sendJoinMessage] - [Node 1] Node 1 is sending join message
+2025-18 21:41:30 INFO [Node] [configureJMS] - [Node 1] No one responded. I am single node
+2025-18 21:41:30 INFO [Node] [configureJMS] - [Node 1] Current node count: 1
+2025-18 21:41:46 INFO [Node] [sendJoinMessage] - [Node 2] Node 2 is sending join message
+2025-18 21:41:46 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 2
+2025-18 21:41:46 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got join in node 1, current node count: 2
+2025-18 21:41:46 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got join ack from 1 in node 2, current node count: 1
+2025-18 21:41:47 INFO [Node] [configureJMS] - [Node 2] Current node count: 2
+2025-18 21:42:00 INFO [Node] [sendJoinMessage] - [Node 3] Node 3 is sending join message
+2025-18 21:42:00 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 3
+2025-18 21:42:00 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got join in node 1, current node count: 3
+2025-18 21:42:00 INFO [Node] [sendDirectAck] - [Node 2] Node 2 is sending ack message to 3
+2025-18 21:42:00 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got join in node 2, current node count: 3
+2025-18 21:42:00 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got join ack from 1 in node 3, current node count: 1
+2025-18 21:42:00 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got join ack from 2 in node 3, current node count: 2
+2025-18 21:42:01 INFO [Node] [configureJMS] - [Node 3] Current node count: 3
+2025-18 21:42:06 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 3
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 3
+2025-18 21:42:06 INFO [Node] [enterCriticalSection] - [Node 3] Node 3 is entering critical section
+2025-18 21:42:06 INFO [Node] [sendProvokeDirectMessage] - [Node 3] Node 3 is sending provoke message to 1
+2025-18 21:42:06 INFO [Node] [sendProvokeDirectMessage] - [Node 3] Node 3 is sending provoke message to 2
+2025-18 21:42:06 INFO [Node] [leaveCriticalSection] - [Node 3] Node 3 is leaving cs
+2025-18 21:42:06 INFO [Node] [sendReleaseFromCS] - [Node 3] Node 3 is sending release from cs
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got provoke on node 1 from node 3
+2025-18 21:42:06 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 3
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got provoke on node 2 from node 3
+2025-18 21:42:06 INFO [Node] [sendDirectAck] - [Node 2] Node 2 is sending ack message to 3
+2025-18 21:42:06 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:42:06 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got Provoke ack from 1, in node 3
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got Provoke ack from 2, in node 3
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Release message from: 2 timestamp: 3
+2025-18 21:42:06 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Release message from: 1 timestamp: 3
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:42:06 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response NO of cs to 2
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response NO of cs to 2
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response NO of cs to 2
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response NO of cs to 2
+2025-18 21:42:06 INFO [Node] [enterCriticalSection] - [Node 1] Node 1 is entering critical section
+2025-18 21:42:06 INFO [Node] [sendProvokeDirectMessage] - [Node 1] Node 1 is sending provoke message to 2
+2025-18 21:42:06 INFO [Node] [leaveCriticalSection] - [Node 1] Node 1 is leaving cs
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got provoke on node 2 from node 1
+2025-18 21:42:06 INFO [Node] [sendReleaseFromCS] - [Node 1] Node 1 is sending release from cs
+2025-18 21:42:06 INFO [Node] [sendDirectAck] - [Node 2] Node 2 is sending ack message to 1
+2025-18 21:42:06 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Release message from: 2 timestamp: 3
+2025-18 21:42:06 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Release message from: 2 timestamp: 3
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 2
+2025-18 21:42:06 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got Provoke ack from 2, in node 1
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 2
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 2
+2025-18 21:42:06 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 2
+2025-18 21:42:06 INFO [Node] [enterCriticalSection] - [Node 2] Node 2 is entering critical section
+2025-18 21:42:06 INFO [Node] [leaveCriticalSection] - [Node 2] Node 2 is leaving cs
+2025-18 21:42:06 INFO [Node] [sendReleaseFromCS] - [Node 2] Node 2 is sending release from cs
+2025-18 21:42:12 INFO [Node] [getDependencies] - [Node 3] Dependent upon node: 1
+2025-18 21:42:12 INFO [Node] [getDependencies] - [Node 3] Dependent upon node: 2
+2025-18 21:42:19 INFO [Node] [getDependencies] - [Node 1] Dependent upon node: 2
+2025-18 21:42:22 INFO [Node] [sendQuestion] - [Node 1] Node 1 is sending question message to 2
+2025-18 21:42:40 INFO [Node] [lambda$checkForInactiveNodes$0] - [Node 1] Node 1 is not deadlocked
+2025-18 21:42:51 INFO [Node] [sendQuestion] - [Node 3] Node 3 is sending question message to 1
+2025-18 21:42:51 INFO [Node] [sendQuestion] - [Node 3] Node 3 is sending question message to 2
+2025-18 21:42:51 INFO [Node] [sendQuestion] - [Node 1] Node 1 is sending question message to 2
+2025-18 21:43:10 INFO [Node] [lambda$checkForInactiveNodes$0] - [Node 1] Node 1 is not deadlocked
+2025-18 21:43:11 INFO [Node] [lambda$checkForInactiveNodes$0] - [Node 3] Node 3 is not deadlocked
+2025-18 21:43:15 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:43:15 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 2
+2025-18 21:43:15 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 2
+2025-18 21:43:15 INFO [Node] [enterCriticalSection] - [Node 2] Node 2 is entering critical section
+2025-18 21:43:15 INFO [Node] [announceClearDeadlock] - [Node 2] Node 2 is sending clear message from cs
+2025-18 21:43:15 INFO [Node] [leaveCriticalSection] - [Node 2] Node 2 is leaving cs
+2025-18 21:43:15 INFO [Node] [sendReleaseFromCS] - [Node 2] Node 2 is sending release from cs
+2025-18 21:43:15 INFO [BroadcastMessageListener] [processMessage] - [Node 1] CLEAR DETECTED on node 2
+2025-18 21:43:15 INFO [BroadcastMessageListener] [processMessage] - [Node 3] CLEAR DETECTED on node 2
+2025-18 21:43:19 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 2
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 2
+2025-18 21:43:19 INFO [Node] [enterCriticalSection] - [Node 2] Node 2 is entering critical section
+2025-18 21:43:19 INFO [Node] [sendProvokeDirectMessage] - [Node 2] Node 2 is sending provoke message to 1
+2025-18 21:43:19 INFO [Node] [sendProvokeDirectMessage] - [Node 2] Node 2 is sending provoke message to 3
+2025-18 21:43:19 INFO [Node] [leaveCriticalSection] - [Node 2] Node 2 is leaving cs
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got provoke on node 1 from node 2
+2025-18 21:43:19 INFO [Node] [sendReleaseFromCS] - [Node 2] Node 2 is sending release from cs
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got provoke on node 3 from node 2
+2025-18 21:43:19 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 2
+2025-18 21:43:19 INFO [Node] [sendDirectAck] - [Node 3] Node 3 is sending ack message to 2
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got Provoke ack from 1, in node 2
+2025-18 21:43:19 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:43:19 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Release message from: 1 timestamp: 14
+2025-18 21:43:19 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got Provoke ack from 3, in node 2
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Release message from: 3 timestamp: 14
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response NO of cs to 3
+2025-18 21:43:19 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response NO of cs to 3
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response NO of cs to 3
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:43:19 INFO [Node] [enterCriticalSection] - [Node 1] Node 1 is entering critical section
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:43:19 INFO [Node] [sendProvokeDirectMessage] - [Node 1] Node 1 is sending provoke message to 3
+2025-18 21:43:19 INFO [Node] [leaveCriticalSection] - [Node 1] Node 1 is leaving cs
+2025-18 21:43:19 INFO [Node] [sendReleaseFromCS] - [Node 1] Node 1 is sending release from cs
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got provoke on node 3 from node 1
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 3
+2025-18 21:43:19 INFO [Node] [sendDirectAck] - [Node 3] Node 3 is sending ack message to 1
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Release message from: 3 timestamp: 14
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got Provoke ack from 3, in node 1
+2025-18 21:43:19 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 3
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 3
+2025-18 21:43:19 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Release message from: 3 timestamp: 14
+2025-18 21:43:19 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 3
+2025-18 21:43:19 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 3
+2025-18 21:43:19 INFO [Node] [enterCriticalSection] - [Node 3] Node 3 is entering critical section
+2025-18 21:43:19 INFO [Node] [leaveCriticalSection] - [Node 3] Node 3 is leaving cs
+2025-18 21:43:19 INFO [Node] [sendReleaseFromCS] - [Node 3] Node 3 is sending release from cs
+2025-18 21:43:22 INFO [Node] [getDependencies] - [Node 2] Dependent upon node: 1
+2025-18 21:43:22 INFO [Node] [getDependencies] - [Node 2] Dependent upon node: 3
+2025-18 21:43:24 INFO [Node] [getDependencies] - [Node 1] Dependent upon node: 3
+2025-18 21:43:31 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:43:31 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 3
+2025-18 21:43:31 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 3
+2025-18 21:43:31 INFO [Node] [enterCriticalSection] - [Node 3] Node 3 is entering critical section
+2025-18 21:43:31 INFO [Node] [announceClearDeadlock] - [Node 3] Node 3 is sending clear message from cs
+2025-18 21:43:31 INFO [Node] [leaveCriticalSection] - [Node 3] Node 3 is leaving cs
+2025-18 21:43:31 INFO [Node] [sendReleaseFromCS] - [Node 3] Node 3 is sending release from cs
+2025-18 21:43:31 INFO [BroadcastMessageListener] [processMessage] - [Node 1] CLEAR DETECTED on node 3
+2025-18 21:43:31 INFO [BroadcastMessageListener] [processMessage] - [Node 2] CLEAR DETECTED on node 3
+2025-18 21:43:32 INFO [Node] [sendRequestToCS] - [Node 3] Node 3 is sending request to cs
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 3
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 3
+2025-18 21:43:32 INFO [Node] [enterCriticalSection] - [Node 3] Node 3 is entering critical section
+2025-18 21:43:32 INFO [Node] [sendProvokeDirectMessage] - [Node 3] Node 3 is sending provoke message to 1
+2025-18 21:43:32 INFO [Node] [leaveCriticalSection] - [Node 3] Node 3 is leaving cs
+2025-18 21:43:32 INFO [Node] [sendReleaseFromCS] - [Node 3] Node 3 is sending release from cs
+2025-18 21:43:32 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got provoke on node 1 from node 3
+2025-18 21:43:32 INFO [Node] [sendDirectAck] - [Node 1] Node 1 is sending ack message to 3
+2025-18 21:43:32 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got Provoke ack from 1, in node 3
+2025-18 21:43:32 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:43:32 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Release message from: 1 timestamp: 25
+2025-18 21:43:32 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:43:32 INFO [Node] [enterCriticalSection] - [Node 1] Node 1 is entering critical section
+2025-18 21:43:32 INFO [Node] [sendProvokeDirectMessage] - [Node 1] Node 1 is sending provoke message to 2
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:43:32 INFO [Node] [leaveCriticalSection] - [Node 1] Node 1 is leaving cs
+2025-18 21:43:32 INFO [Node] [sendReleaseFromCS] - [Node 1] Node 1 is sending release from cs
+2025-18 21:43:32 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got provoke on node 2 from node 1
+2025-18 21:43:32 INFO [Node] [sendDirectAck] - [Node 2] Node 2 is sending ack message to 1
+2025-18 21:43:32 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:43:32 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Release message from: 2 timestamp: 28
+2025-18 21:43:32 INFO [BroadcastMessageListener] [processMessage] - [Node 1] Got Provoke ack from 2, in node 1
+2025-18 21:43:32 INFO [Node] [sendRequestToCS] - [Node 2] Node 2 is sending request to cs
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 2
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 2
+2025-18 21:43:32 INFO [Node] [enterCriticalSection] - [Node 2] Node 2 is entering critical section
+2025-18 21:43:32 INFO [Node] [sendProvokeDirectMessage] - [Node 2] Node 2 is sending provoke message to 3
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 2
+2025-18 21:43:32 INFO [Node] [leaveCriticalSection] - [Node 2] Node 2 is leaving cs
+2025-18 21:43:32 INFO [Node] [sendReleaseFromCS] - [Node 2] Node 2 is sending release from cs
+2025-18 21:43:32 INFO [Node] [sendCSResponse] - [Node 1] Node 1 is sending response YES of cs to 2
+2025-18 21:43:32 INFO [BroadcastMessageListener] [processMessage] - [Node 3] Got provoke on node 3 from node 2
+2025-18 21:43:32 INFO [Node] [sendDirectAck] - [Node 3] Node 3 is sending ack message to 2
+2025-18 21:43:32 INFO [BroadcastMessageListener] [processMessage] - [Node 2] Got Provoke ack from 3, in node 2
+2025-18 21:43:34 INFO [Node] [getDependencies] - [Node 3] Dependent upon node: 1
+2025-18 21:43:36 INFO [Node] [getDependencies] - [Node 2] Dependent upon node: 3
+2025-18 21:43:38 INFO [Node] [getDependencies] - [Node 1] Dependent upon node: 2
+2025-18 21:43:40 INFO [Node] [sendQuestion] - [Node 1] Node 1 is sending question message to 2
+2025-18 21:43:40 INFO [Node] [sendQuestion] - [Node 2] Node 2 is sending question message to 3
+2025-18 21:43:40 INFO [Node] [sendQuestion] - [Node 3] Node 3 is sending question message to 1
+2025-18 21:43:40 INFO [Node] [sendAnswer] - [Node 1] Node 1 is sending answer message to 3
+2025-18 21:43:40 INFO [Node] [sendAnswer] - [Node 3] Node 3 is sending answer message to 2
+2025-18 21:43:40 INFO [Node] [sendAnswer] - [Node 2] Node 2 is sending answer message to 1
+2025-18 21:43:40 INFO [Node] [processAnswer] - [Node 1] DEADLOCK DETECTED on node 1
+2025-18 21:43:40 INFO [Node] [sendRequestToCS] - [Node 1] Node 1 is sending request to cs
+2025-18 21:43:40 INFO [Node] [sendCSResponse] - [Node 2] Node 2 is sending response YES of cs to 1
+2025-18 21:43:40 INFO [Node] [sendCSResponse] - [Node 3] Node 3 is sending response YES of cs to 1
+2025-18 21:43:40 INFO [Node] [enterCriticalSection] - [Node 1] Node 1 is entering critical section
+2025-18 21:43:40 INFO [Node] [announceDeadlock] - [Node 1] Node 1 is sending deadlock announce from cs
+2025-18 21:43:40 INFO [Node] [leaveCriticalSection] - [Node 1] Node 1 is leaving cs
+2025-18 21:43:40 INFO [BroadcastMessageListener] [processMessage] - [Node 3] DEADLOCK DETECTED on node 1
+2025-18 21:43:40 INFO [Node] [sendReleaseFromCS] - [Node 1] Node 1 is sending release from cs
+2025-18 21:43:40 INFO [BroadcastMessageListener] [processMessage] - [Node 2] DEADLOCK DETECTED on node 1
+2025-18 21:43:54 INFO [Node] [sendQuestion] - [Node 2] Node 2 is sending question message to 3
+2025-18 21:44:00 WARN [Node] [lambda$checkForInactiveNodes$0] - [Node 1] Node 3 is considered inactive.
+2025-18 21:44:02 WARN [Node] [lambda$checkForInactiveNodes$0] - [Node 2] Node 3 is considered inactive.
+2025-18 21:44:21 INFO [Node] [startDetection] - [Node 2] Node 2 is not deadlocked
