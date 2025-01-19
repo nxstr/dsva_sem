@@ -3,7 +3,6 @@ import lombok.Setter;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.ThreadContext;
 
 import javax.jms.*;
 import java.util.*;
@@ -58,7 +57,6 @@ public class Node {
     @Getter
     private final List<CSRequest> requestQueue = new ArrayList<>();
 
-    //chm
     @Getter
     @Setter
     private List<Pair> last = new ArrayList<>();
@@ -85,7 +83,7 @@ public class Node {
     @Getter
     private Timer heartbeatTimer;
     @Getter
-    private long heartbeatInterval = 1000; // 5 seconds
+    private long heartbeatInterval = 1000;
     @Getter
     @Setter
     private Map<Integer, Long> activeNodes;
@@ -152,19 +150,11 @@ public class Node {
 
             HeartbeatListener heartbeatListener = new HeartbeatListener(this);
             heartbeatConsumer.setMessageListener(heartbeatListener);
-//            MessageConsumer critRequestConsumer = session.createConsumer(critRequestTopic);
-//            topicConsumerMap.put(TopicName.CRIT_TOPIC, critRequestConsumer);
-//            CritMessageListener critListener = new CritMessageListener(this);
-//            critRequestConsumer.setMessageListener(critListener);
-
 
             sendJoinMessage();
             Thread.sleep(1000);
             nodeIds.add(nodeId);
             if (!directListener.isMessageReceived()) {
-//                logger.info("Node " + nodeName + ": " +"No messages received. Setting nodeId to 1. I am first.");
-//                nodeId = 1;
-//                actualCount = 1;
                 logger.info(nodeLogName+ "No one responded. I am single node");
             }
             logger.info(nodeLogName+ "Current node count: " + nodeIds.size());
@@ -225,15 +215,12 @@ public class Node {
         monitoringTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                checkForInactiveNodes(15000+(delayMillis* 2L)); // 10-second timeout
+                checkForInactiveNodes(15000+(delayMillis* 2L));
             }
-        }, 0, 5000+delayMillis); // Check every 5 seconds
+        }, 0, 5000+delayMillis);
     }
     public void checkForInactiveNodes(long timeout) {
         long currentTime = System.currentTimeMillis();
-//        activeNodes.forEach((key, value) -> {
-//                    System.out.println("Node " + key + " last heartbeat at " + value + ", current time: " + currentTime);
-//                });
         if(detectionTimes==null){
             detectionTimes = new HashMap<>();
         }
@@ -352,7 +339,6 @@ public class Node {
             TextMessage message = session.createTextMessage(nodeId+"|JOIN");
             logger.info(nodeLogName+ "Node " + nodeId + " is sending join message");
             broadcastProducer.send(message);
-//            startPinging();
         }catch (JMSException e){
             e.printStackTrace();
         }
@@ -371,7 +357,6 @@ public class Node {
             message.setIntProperty("nodeId", receiverId);
             logger.info(nodeLogName+ "Node " + nodeId + " is sending ack message to " + receiverId);
             directProducer.send(message);
-//            startPinging();
         }catch (JMSException e){
             e.printStackTrace();
         }
@@ -432,14 +417,11 @@ public class Node {
                     isNewWinner = true;
                 }
             }
-
-            // If the new request has a smaller timestamp (higher priority), insert it
             if (newRequest.getTimestamp() < existingRequest.getTimestamp()) {
                 requestQueue.add(i, new CSRequest(newRequest.getTimestamp(), newRequest.getNodeId()));
                 added = true;
                 break;
             }
-            // If timestamps are equal, compare nodeId
             if (newRequest.getTimestamp() == existingRequest.getTimestamp() &&
                     newRequest.getNodeId() < existingRequest.getNodeId()) {
                 requestQueue.add(i, new CSRequest(newRequest.getTimestamp(), newRequest.getNodeId()));
@@ -450,7 +432,6 @@ public class Node {
         if(requestQueue.isEmpty()){
             isNewWinner = true;
         }
-        // If the request wasn't inserted during the loop, it should go to the end of the list
         if (!added) {
             requestQueue.add(new CSRequest(newRequest.getTimestamp(), newRequest.getNodeId()));
         }
@@ -479,7 +460,6 @@ public class Node {
     }
 
     public void enterCriticalSection(){
-//        sendHeartBeats();
         logger.info(nodeLogName+ "Node " + nodeId + " is entering critical section");
         boolean isClearAnnounced = false;
         if(state==NodeState.PROVOKING) {
@@ -544,14 +524,12 @@ public class Node {
                 possibleIds.add(id);
             }
         }
-//        requestQueue.clear();
         dependencyCount = 0;
         isCriticalSectionRequested = false;
         isInitiator = false;
     }
 
     public void removeInactiveNode(int inactiveId){
-//        currentNodeCount--;
         if(listOfDependencies.contains(inactiveId)){
             listOfDependencies.remove(listOfDependencies.indexOf(inactiveId));
             if(listOfDependencies.isEmpty()){
@@ -614,15 +592,12 @@ public class Node {
             int idx = random.nextInt(possibleIds.size());
             int nodeDependId = possibleIds.get(idx);
             possibleIds.remove(idx);
-//            if(!listOfDependencies.contains(nodeDependId)){
             sendProvokeDirectMessage(nodeDependId);
             dependencyCount++;
-//            }
         }
     }
 
     public void waitForMessage(int receiverId){
-//        setState(NodeState.MANUAL_DEPEND);
         if(possibleIds.contains(receiverId)) {
             String type = "SINGLE";
             dependencyCount++;
@@ -804,24 +779,6 @@ public class Node {
         }
     }
 
-//    public void sendRejectAnswer(int originatorId, int testNum, int senderId, int receiverId){
-//        try {
-//            if(delayMillis!=0) {
-//                try {
-//                    Thread.sleep(delayMillis);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//            TextMessage message = session.createTextMessage("REJECT|" + originatorId + "|" + testNum + "|" + senderId + "|" + receiverId);
-//            message.setIntProperty("nodeId", receiverId);
-//            logger.info(nodeLogName+ "Node " + nodeId + " is sending reject message to " + receiverId);
-//            detectDirectProducer.send(message);
-//        } catch (JMSException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     public void processQuestion(int originatorId, int testNum, int senderId){
         for(Pair p: last){
             if(p.getNodeId()==originatorId){
@@ -841,7 +798,6 @@ public class Node {
                     }
 
                     for(Integer id: listOfDependencies){
-                        System.out.println("dependent on: " + id);
                         sendQuestion(originatorId, testNum, nodeId, id); //originatorId, testNum from last, sender, receiverId,
                     }
                     for(Pair p1: number){
@@ -863,9 +819,6 @@ public class Node {
         }
     }
 
-//    public void processRejectAnswer(int originatorId, int testNum, int receiverId){
-//        processAnswer(originatorId, testNum, receiverId);
-//    }
     public void processAnswer(int originatorId, int testNum, int receiverId){
         int waitV = wait.stream().filter(p1->p1.getNodeId()==originatorId).findAny().orElse(null).getValue();
         int lastV = last.stream().filter(p1->p1.getNodeId()==originatorId).findAny().orElse(null).getValue();
@@ -887,29 +840,12 @@ public class Node {
                                         break;
                                     }
                                 }
-                            }else{
-                                System.out.println("My parent is null and i dont know where is the problem " + originatorId + " " + receiverId);
                             }
                         }
-                    }else{
-                        System.out.println("Not null");
                     }
                     break;
                 }
             }
-        }else{
-            System.out.println("here 2");
         }
     }
-//    public void sendDeadlockFreeMsg(int originatorId, int testNum, int receiverId){
-//        try {
-//            TextMessage message = session.createTextMessage("DFM|" + originatorId + "|" + testNum + "|" + nodeId + "|" + receiverId);
-//            message.setIntProperty("nodeId", receiverId);
-//            System.out.println("Node " + nodeId + " is sending dfm message to " + receiverId);
-//            detectDirectProducer.send(message);
-//        } catch (JMSException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
 }

@@ -6,7 +6,6 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
-import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -45,7 +44,6 @@ public class HeartbeatListener implements MessageListener {
             }else{
                 node.getActiveNodes().putIfAbsent(senderId, System.currentTimeMillis());
             }
-//            System.out.println("Received heartbeat from node: " + senderId + " at time " + System.currentTimeMillis());
         }
     }
 

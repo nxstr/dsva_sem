@@ -1,13 +1,11 @@
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.ThreadContext;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
-import java.util.Objects;
 
 public class DirectMessageListener implements MessageListener {
     private static final Logger logger = LogManager.getLogger(BroadcastMessageListener.class);
@@ -39,19 +37,11 @@ public class DirectMessageListener implements MessageListener {
     }
 
     public void processMessage() throws JMSException {
-//        if(node.getNodeId()==2 || node.getNodeId()==4) {
-//            try {
-//                Thread.sleep(2000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
         messageReceived = false;
         receivedMessageType = "";
         if(messageText.startsWith("JACK")){
             messageReceived = true;
             receivedMessageType = "JACK";
-//            node.setCurrentNodeCount(node.getCurrentNodeCount()+1);
             if(!node.getNodeIds().contains(senderId)) {
                 node.getPossibleIds().add(senderId);
                 node.getNodeIds().add(senderId);

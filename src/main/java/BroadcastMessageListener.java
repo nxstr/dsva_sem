@@ -1,7 +1,6 @@
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.ThreadContext;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -19,8 +18,6 @@ public class BroadcastMessageListener implements MessageListener {
     private Integer senderId;
     private String messageText;
     private CSRequest request;
-//    private int agreementCount;
-//    private int responseCount;
 
     public BroadcastMessageListener(Node node) {
         this.node = node;
@@ -39,16 +36,7 @@ public class BroadcastMessageListener implements MessageListener {
     }
 
     public void processMessage() throws JMSException {
-//        if(node.getNodeId()==2 || node.getNodeId()==4) {
-//            try {
-//                Thread.sleep(2000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        System.out.println(messageText + " with state " + node.getState());
         if(messageText.startsWith("JOIN") && !Objects.equals(senderId, node.getNodeId())){
-//            node.setCurrentNodeCount(node.getCurrentNodeCount()+1);
             if(!node.getNodeIds().contains(senderId)) {
                 node.getPossibleIds().add(senderId);
                 node.getNodeIds().add(senderId);
